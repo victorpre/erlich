@@ -6,6 +6,7 @@ config :db, Db.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
+  pool: Ecto.Adapters.SQL.Sandbox
 
 config :logger,
   backends: [:console],

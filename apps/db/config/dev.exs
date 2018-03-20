@@ -6,3 +6,4 @@ config :db, Db.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
+  pool_size: 10
