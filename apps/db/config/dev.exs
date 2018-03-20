@@ -5,4 +5,5 @@ config :db, Db.Repo,
   database: "erlich_dev",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
+  hostname: "localhost",
+  pool_size: 10
