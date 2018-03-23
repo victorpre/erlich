@@ -12,6 +12,7 @@ defmodule Bot.Application do
       supervisor(BotWeb.Endpoint, []),
       # Start your own worker by calling: Bot.Worker.start_link(arg1, arg2, arg3)
       # worker(Bot.Worker, [arg1, arg2, arg3]),
+      worker(BotWeb.Scheduler, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

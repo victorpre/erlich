@@ -26,6 +26,11 @@ config :logger, :console,
 config :phoenix, :generators,
   migration: false,
   model: false
+
+config :bot, BotWeb.Scheduler,
+jobs: [
+# {"* * * * *",      {IO, :puts, ["oie"]}},
+]
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
