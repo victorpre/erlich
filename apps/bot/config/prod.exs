@@ -58,6 +58,8 @@ config :logger, level: :info
 #
 #     config :bot, BotWeb.Endpoint, server: true
 #
+config :nadia,
+  token: {:system, "TELEGRAM_BOT_TOKEN"}
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
