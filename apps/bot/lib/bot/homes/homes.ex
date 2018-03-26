@@ -101,4 +101,12 @@ defmodule Bot.Homes do
   def change_ad(%Ad{} = ad) do
     Ad.changeset(ad, %{})
   end
+
+  @doc """
+  Returns an HTML formatted %Ad{} to be returned by the Bot.
+  """
+  def ad_caption_as_html(ad) do
+    "#{ad.title} (#{ad.url})\n" <>
+      "Price: #{ad.price}\n" <> "Size: #{ad.size}\n" <> "Provider: #{ad.provider}"
+  end
 end

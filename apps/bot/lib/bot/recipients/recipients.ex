@@ -7,6 +7,7 @@ defmodule Bot.Recipients do
   alias Db.Repo
 
   alias Bot.Recipients.Subscriber
+  alias Bot.Homes
 
   @doc """
   Returns the list of subscribers.
@@ -100,5 +101,23 @@ defmodule Bot.Recipients do
   """
   def change_subscriber(%Subscriber{} = subscriber) do
     Subscriber.changeset(subscriber, %{})
+  end
+
+  @doc """
+  Notifies subscriber about new Ad through Telegram
+
+  ## Examples
+
+      iex> notify_subscriber(subscriber, ad)
+      {:ok, %Nadia.Model.Message{}}
+
+  """
+  def notify_subscriber(subscriber, ad) do
+    Nadia.send_photo(
+      subscriber.subscriber_id,
+      ad.img,
+      caption: Homes.ad_caption_as_html(ad),
+      parse_mode: "HTML"
+    )
   end
 end
