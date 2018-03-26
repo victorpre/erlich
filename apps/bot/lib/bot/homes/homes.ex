@@ -75,6 +75,24 @@ defmodule Bot.Homes do
   end
 
   @doc """
+  Creates an ad.
+
+  ## Examples
+
+      iex> create_ad!(%{field: value})
+      %Ad{}
+
+      iex> create_ad(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_ad!(attrs \\ %{}) do
+    %Ad{}
+    |> Ad.changeset(attrs)
+    |> Repo.insert!()
+  end
+
+  @doc """
   Updates a ad.
 
   ## Examples
