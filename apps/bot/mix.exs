@@ -23,7 +23,7 @@ defmodule Bot.Mixfile do
   def application do
     [
       mod: {Bot.Application, []},
-      extra_applications: [:logger, :phoenix_ecto, :db]
+      extra_applications: [:logger, :nadia, :phoenix_ecto, :db]
     ]
   end
 
@@ -43,6 +43,7 @@ defmodule Bot.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:nadia, "~> 0.4.3"},
       {:db, in_umbrella: true}
     ]
   end
