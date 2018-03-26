@@ -22,6 +22,25 @@ defmodule Bot.Homes do
   end
 
   @doc """
+  Gets a single ad by url.
+
+  Raises `Ecto.NoResultsError` if the Ad does not exist.
+
+  ## Examples
+
+      iex> get_ad_by_url("https://www.someurl.com/ads/9123123")
+      %Ad{}
+
+      iex> get_ad_by_url("https://www.someurl.com/ads/9123123")
+      nil
+
+  """
+  def get_ad_by_url(url)  do
+    query = from a in Ad, where: a.url == ^url
+    Repo.one(query)
+  end
+
+  @doc """
   Gets a single ad.
 
   Raises `Ecto.NoResultsError` if the Ad does not exist.
@@ -53,6 +72,24 @@ defmodule Bot.Homes do
     %Ad{}
     |> Ad.changeset(attrs)
     |> Repo.insert()
+  end
+
+  @doc """
+  Creates an ad.
+
+  ## Examples
+
+      iex> create_ad!(%{field: value})
+      %Ad{}
+
+      iex> create_ad(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_ad!(attrs \\ %{}) do
+    %Ad{}
+    |> Ad.changeset(attrs)
+    |> Repo.insert!()
   end
 
   @doc """
