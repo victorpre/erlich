@@ -1,5 +1,4 @@
 use Mix.Config
 
-config :db,
-  ecto_repos: [Db.Repo],
+config :db, Db.Repo,
   adapter: Ecto.Adapters.Postgres
