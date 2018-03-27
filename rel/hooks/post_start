@@ -15,5 +15,5 @@ done
 set =e
 
 echo "Running migrations"
-$RELEASE_DIR/bin/erlich rpc Elixir.Db.ReleaseTasks migrate
+bin/erlich rpc Elixir.Db.ReleaseTasks migrate
 echo "Migrations run successfully"
