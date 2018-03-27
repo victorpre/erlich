@@ -20,6 +20,9 @@ config :bot, BotWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true
 
+config :bot, Db.Repo,
+  ecto_repos: [Db.Repo]
+
 # Do not print debug messages in production
 config :logger, level: :info
 
