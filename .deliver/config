@@ -1,6 +1,6 @@
 APP="erlich"
 
-BUILD_HOST="192.241.138.42"
+BUILD_HOST="192.241.156.107"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
@@ -13,7 +13,7 @@ GIT_CLEAN_PATHS="_build rel priv/static"
 # STAGING_USER="deploy"
 # TEST_AT="/home/deploy/staging"
 
-PRODUCTION_HOSTS="192.241.138.42"
+PRODUCTION_HOSTS="192.241.156.107"
 PRODUCTION_USER="deploy"
 DELIVER_TO="/home/deploy"
 
