@@ -1,4 +1,4 @@
-APP="erlich"
+APP="db"
 
 BUILD_HOST="192.241.156.107"
 BUILD_USER="deploy"
