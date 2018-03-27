@@ -4,7 +4,7 @@ BUILD_HOST="192.241.156.107"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
-RELEASE_DIR="$BUILD_AT/rel/$APP"
+RELEASE_DIR="$BUILD_AT/_build/prod/rel/$APP"
 
 # prevent re-installing node modules; this defaults to "."
 GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="$BUILD_AT/rel/${APP}/releases/*/${APP}.tar.gz"}
