@@ -50,7 +50,8 @@ release :erlich do
     :runtime_tools,
     bot: :permanent,
     crawler: :permanent,
-    db: :permanent
+    db: :permanent,
+    edeliver: permanent
   ]
 end
 
