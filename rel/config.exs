@@ -44,7 +44,7 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :erlich do
+release :db do
   set version: "0.1.0"
   set applications: [
     :runtime_tools,
