@@ -37,6 +37,7 @@ environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"aY36[8<B4o)*1J=/QsNC:ik$OH:o_6tih(GLM%bEO1F*S)`n}Sjf8g5T)gA~r387"
+  set post_start_hook: "rel/hooks/post_start"
 end
 
 # You may define one or more releases in this file.
@@ -45,7 +46,7 @@ end
 # will be used by default
 
 release :erlich do
-  set version: "0.1.0"
+  set version: "0.2.0"
   set applications: [
     :runtime_tools,
     :edeliver,
