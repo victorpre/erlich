@@ -4,6 +4,8 @@ BUILD_HOST="192.241.156.107"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
+ECTO_REPOSITORY="Db.Repo"
+
 RELEASE_DIR="$BUILD_AT/_build/prod/rel/$APP"
 
 # prevent re-installing node modules; this defaults to "."
