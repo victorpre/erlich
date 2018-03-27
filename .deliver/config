@@ -34,12 +34,13 @@ pre_erlang_clean_compile() {
     source ~/.profile
     # echo \$PATH # check if rbenv is in the path
     set -e # fail if any command fails (recommended)
-    cd '$BUILD_AT' # enter the build directory on the build host (required)
+    # Building assets is unnecessary
+    # cd '$BUILD_AT' # enter the build directory on the build host (required)
     # prepare something
-    mkdir -p priv/static # required by the phoenix.digest task
-    npm install
+    # mkdir -p priv/static # required by the phoenix.digest task
+    # npm install
 
-    ./node_modules/brunch/bin/brunch build --production
+    # ./node_modules/brunch/bin/brunch build --production
 
     # run your custom task
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
