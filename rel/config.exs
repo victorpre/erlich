@@ -51,7 +51,7 @@ release :erlich do
     bot: :permanent,
     crawler: :permanent,
     db: :permanent,
-    edeliver: permanent
+    edeliver: :permanent
   ]
 end
 
