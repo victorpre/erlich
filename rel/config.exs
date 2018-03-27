@@ -48,6 +48,7 @@ release :erlich do
   set version: "0.1.0"
   set applications: [
     :runtime_tools,
+    :edeliver,
     bot: :permanent,
     crawler: :permanent,
     db: :permanent
