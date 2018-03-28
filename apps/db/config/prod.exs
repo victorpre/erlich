@@ -7,3 +7,5 @@ config :db, Db.Repo,
   hostname: "localhost",
   port: 5432,
   pool_size: 20
+
+import_config "../../../config/prod.secret.exs"
