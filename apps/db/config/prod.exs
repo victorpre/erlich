@@ -5,4 +5,5 @@ config :db, Db.Repo,
   username: "erlich_user",
   database: "erlich_prod",
   hostname: "localhost",
+  port: 5432,
   pool_size: 20
