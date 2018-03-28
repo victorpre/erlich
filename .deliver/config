@@ -37,14 +37,15 @@ pre_erlang_clean_compile() {
     # echo \$PATH # check if rbenv is in the path
     set -e # fail if any command fails (recommended)
     # Building assets is unnecessary
-    # cd '$BUILD_AT' # enter the build directory on the build host (required)
+    cd '$BUILD_AT' # enter the build directory on the build host (required)
     # prepare something
-    # mkdir -p priv/static # required by the phoenix.digest task
-    # npm install
+    mkdir -p priv/static # required by the phoenix.digest task
 
-    # ./node_modules/brunch/bin/brunch build --production
+    cd '$BUILD_AT/apps/bot/assets/' # enter the build directory on the build host (required)
+
+    (npm install && ./node_modules/brunch/bin/brunch build --production)
 
     # run your custom task
-    # APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
   "
 }
