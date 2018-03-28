@@ -15,9 +15,10 @@ use Mix.Config
 # which you typically run after static files are built.
 config :bot, BotWeb.Endpoint,
   http: [port: 8888],
-  url: [host: "localhost", port: 8888],
+  url: [host: "127.0.0.1", port: 8888],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  server: true
+  server: true,
+  root: "."
 
 config :bot, Db.Repo,
   ecto_repos: [Db.Repo]
