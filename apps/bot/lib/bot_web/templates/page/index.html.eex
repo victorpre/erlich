@@ -1,6 +1,6 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <h2><%= gettext "Welcome to %{name}!", name: "Erlich" %></h2>
+  <p class="lead">A chatbot that notifies you<br />about new opportunities of places to live.</p>
 </div>
 
 <div class="row marketing">
@@ -8,7 +8,7 @@
     <h4>Resources</h4>
     <ul>
       <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
+        <a href="https://github.com/victorpre/erlich">GitHub</a>
       </li>
       <li>
         <a href="https://hexdocs.pm/phoenix">Docs</a>

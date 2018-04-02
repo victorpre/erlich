@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/victorpre/erlich.svg?branch=master)](https://travis-ci.org/victorpre/erlich)
 
-An Umbrella Elixir Project which crawls through classified adverisements websites and sends new ads by a chatbot.
+An Umbrella Elixir Project which crawls through classified adverisements websites and sends new ads through a Telegram chatbot.
 
 ## Naming
 
