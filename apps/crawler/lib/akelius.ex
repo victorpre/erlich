@@ -1,4 +1,10 @@
 defmodule Crawler.Akelius do
+
+  @filter_params %{
+    rooms: 2,
+    price: 1000
+  }
+
   def import(page \\ 1) do
     url = "https://www.akelius.de/en/search/apartments/norden/hamburg/list?region=all"
 
@@ -6,6 +12,8 @@ defmodule Crawler.Akelius do
     |> get_page_html()
     |> get_dom_elements()
     |> extract_metadata()
+    |> filter_metadata()
+    |> remove_unused_fields()
   end
 
   defp get_page_html(url) do
@@ -25,6 +33,7 @@ defmodule Crawler.Akelius do
         price: price(content),
         size: size(content),
         img: image(content),
+        rooms: rooms(content),
         provider: "Akelius"
       }
     end)
@@ -47,6 +56,8 @@ defmodule Crawler.Akelius do
   defp price(html) do
     [{_, _, [price]}] = Floki.find(html, "p span.price")
     price
+    |> String.slice(0..-3)
+    |> String.to_integer()
   end
 
   defp size(html) do
@@ -57,5 +68,24 @@ defmodule Crawler.Akelius do
   defp image(html) do
     [{"div", [_, {"style", img_asset}], _}] = Floki.find(html, ".image-box")
     String.slice(img_asset, 22..-2)
+  end
+
+  defp rooms(html) do
+    [{_, _, [rooms]}] = Floki.find(html, "p span.rooms")
+    rooms
+    |> String.first()
+    |> String.to_integer()
+  end
+
+  defp filter_metadata(metadata) do
+    Enum.filter(metadata, fn(entry)->
+      entry.price <= @filter_params.price && entry.rooms >= @filter_params.rooms
+    end)
+  end
+
+  defp remove_unused_fields(metadata) do
+    Enum.map(metadata, fn(entry)->
+      Map.delete(entry, :rooms)
+    end)
   end
 end
