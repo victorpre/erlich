@@ -14,6 +14,7 @@ defmodule Crawler.Akelius do
     |> extract_metadata()
     |> filter_metadata()
     |> remove_unused_fields()
+    |> prepare_output()
   end
 
   defp get_page_html(url) do
@@ -86,6 +87,12 @@ defmodule Crawler.Akelius do
   defp remove_unused_fields(metadata) do
     Enum.map(metadata, fn(entry)->
       Map.delete(entry, :rooms)
+    end)
+  end
+
+  defp prepare_output(metadata) do
+    Enum.map(metadata, fn(entry)->
+      Map.put(entry, :price, Integer.to_string(entry.price) <> " €")
     end)
   end
 end
