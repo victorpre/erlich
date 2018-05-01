@@ -2,7 +2,7 @@ defmodule Crawler.Akelius do
 
   @filter_params %{
     rooms: 2,
-    price: 1000
+    price: 1100
   }
 
   def import(page \\ 1) do
