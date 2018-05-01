@@ -6,10 +6,12 @@ defmodule Db.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
+
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: Db.Worker.start_link(arg)
-      Db.Repo
+     supervisor(Db.Repo, []),
       # {Db.Worker, arg},
     ]
 

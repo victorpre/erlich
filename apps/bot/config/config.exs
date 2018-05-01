@@ -8,7 +8,8 @@ use Mix.Config
 # General application configuration
 config :bot,
   namespace: Bot,
-  ecto_repos: [Db.Repo]
+  ecto_repos: [Db.Repo],
+  bot_name: "erlich_bot"
 
 # Configures the endpoint
 config :bot, BotWeb.Endpoint,
@@ -29,8 +30,12 @@ config :phoenix, :generators,
 
 config :bot, BotWeb.Scheduler,
 jobs: [
-# {"* * * * *",      {IO, :puts, ["oie"]}},
+{"* * * * *",      {IO, :puts, ["oie"]}},
 ]
+
+config :nadia,
+  token: ""
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

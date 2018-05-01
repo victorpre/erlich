@@ -15,6 +15,6 @@ defmodule Erlich.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [{:edeliver, "~> 1.4.6"}, {:distillery, "~> 1.5.2"}]
   end
 end

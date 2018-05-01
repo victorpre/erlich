@@ -18,7 +18,6 @@ defmodule Crawler.ImmobilienScout do
     Floki.find(body, "#resultListItems > .result-list__listing > div > article")
   end
 
-  require IEx
   defp extract_metadata(elements) do
     Enum.map(elements, fn {"article", attrs, content} ->
       %{
@@ -26,7 +25,7 @@ defmodule Crawler.ImmobilienScout do
         url: url(content),
         price: price(content),
         size: size(content),
-        image: image(content),
+        img: image(content),
         provider: "ImmobilienScout"
        }
     end)
@@ -61,7 +60,7 @@ defmodule Crawler.ImmobilienScout do
   end
 
   defp extract_img_src([{"img",[_,src,_],[]}] = img_tag), do: extract_img(src)
-  defp extract_img_src(img_tag), do: ""
+  defp extract_img_src(img_tag), do: "http://res.cloudinary.com/victorpre/image/upload/v1522101065/Erlich/no-picture.png"
 
   defp extract_img({"src", img} = img_tag), do: img
   defp extract_img({"data-lazy-src", img} = img_tag), do: img
