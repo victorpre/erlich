@@ -28,8 +28,16 @@ config :phoenix, :generators,
   migration: false,
   model: false
 
+config :bot, BotWeb.Scheduler,
+jobs: [
+  {"*/5 * * * *",      {Bot.Tasks.ImmoWelt, :import_ads, [1]}},
+  {"*/5 * * * *",      {Bot.Tasks.ImmobilienScout, :import_ads, [1]}},
+  {"*/30 * * * *",      {Bot.Tasks.Akelius, :import_ads, [1]}},
+]
+
 config :nadia,
   token: ""
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
