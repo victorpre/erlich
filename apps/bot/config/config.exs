@@ -30,7 +30,9 @@ config :phoenix, :generators,
 
 config :bot, BotWeb.Scheduler,
 jobs: [
-{"* * * * *",      {IO, :puts, ["oie"]}},
+  {"*/5 * * * *",      {Bot.Tasks.ImmoWelt, :import_ads, [1]}},
+  {"*/5 * * * *",      {Bot.Tasks.ImmobilienScout, :import_ads, [1]}},
+  {"*/30 * * * *",      {Bot.Tasks.Akelius, :import_ads, [1]}},
 ]
 
 config :nadia,
