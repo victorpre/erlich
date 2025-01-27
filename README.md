@@ -8,9 +8,8 @@ An Umbrella Elixir Project which crawls through classified adverisements website
 
 ## Deploying with edeliver
 
-- Building a release: `mix edeliver build release production --verbose`
+- Building a release: `RELEASE_VERSION=X.X.X MIX_ENV=prod mix edeliver build release --verbose`
 - Deploying a new release: `mix edeliver deploy release to production`
-
 
 ## Naming
 
